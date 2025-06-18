@@ -340,6 +340,9 @@ cax = fig.add_axes([0.99, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
 cbar = fig.colorbar(map, cax=cax, orientation='vertical')
 cbar.set_label('Difference from average temperature [K]', fontsize=12)
 
+axes[0].set_title('positive NAO extreme', fontsize=12)
+axes[1].set_title('negative NAO extreme', fontsize=12)
+
 plt.tight_layout()
 
 plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/workshop/ts_composite_pos_neg_mpi_ge.png", dpi=300, bbox_inches="tight")

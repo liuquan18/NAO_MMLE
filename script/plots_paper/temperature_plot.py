@@ -338,7 +338,7 @@ axes[1].gridlines(draw_labels=False, color='gray', linestyle='--', linewidth=0.5
 # add colorbar vertical at the right side of the second plot
 cax = fig.add_axes([0.99, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
 cbar = fig.colorbar(map, cax=cax, orientation='vertical')
-cbar.set_label('Difference from average temperature [K]', fontsize=12)
+cbar.set_label('Difference from average temperature [K]', fontsize=11)
 
 axes[0].set_title('positive NAO extreme', fontsize=12)
 axes[1].set_title('negative NAO extreme', fontsize=12)

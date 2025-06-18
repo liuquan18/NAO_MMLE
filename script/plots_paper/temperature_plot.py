@@ -298,7 +298,7 @@ axes[5, 2].text(0.1, 1, "r", transform=axes[5, 2].transAxes, fontsize=12, fontwe
 plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/paper_main/ts_composite_neg_rc.pdf", dpi=300, bbox_inches="tight")
 # %%
 fig, axes = plt.subplots(
-    1, 2, figsize = (11, 5),
+    1, 2, figsize = (7, 4),
     subplot_kw={"projection": ccrs.Orthographic(0, 70)},)
 
 
@@ -342,6 +342,6 @@ cbar.set_label('Difference from average temperature [K]', fontsize=12)
 
 plt.tight_layout()
 
-plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/workshop/ts_composite_pos_neg_mpi_ge.pdf", dpi=300, bbox_inches="tight")
+plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/workshop/ts_composite_pos_neg_mpi_ge.png", dpi=300, bbox_inches="tight")
 
 # %%

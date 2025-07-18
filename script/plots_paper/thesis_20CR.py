@@ -153,12 +153,12 @@ pc_dfs = pd.concat([pc_first_df[['pc', 'period']], pc_last_df[['pc', 'period']]]
 #%%
 fig = plt.figure(figsize=(180 / 25.4, 180 / 25.4))
 plt.rcParams.update({
-    "font.size": 14,
-    "axes.titlesize": 14,
-    "axes.labelsize": 14,
-    "xtick.labelsize": 14,
-    "ytick.labelsize": 14,
-    "legend.fontsize": 14,
+    "font.size": 12,
+    "axes.titlesize": 12,
+    "axes.labelsize": 12,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+    "legend.fontsize": 12,
 })
 
 
@@ -434,14 +434,14 @@ l_patch_MPI = mpatches.Patch(color="#ff7f0e", label="last10")
 ax_hist.set_ylabel(
     "probability density",
 )
-ax_hist.set_xlabel("NAO index", fontsize=14)
+ax_hist.set_xlabel("NAO index", fontsize=12)
 
 ax_hist.legend(
     handles=[f_patch_MPI, l_patch_MPI],
     loc="lower center",
     frameon=False,
     ncol=2,
-    bbox_to_anchor=(0.5, -0.6),
+    bbox_to_anchor=(0.5, -0.5),
 )
 
 empty_patch = mpatches.Patch(
@@ -457,7 +457,7 @@ ax_pos.legend(
     loc="lower center",
     frameon=False,
     ncol=2,
-    bbox_to_anchor=(1.2, -0.6),
+    bbox_to_anchor=(1.2, -0.5),
 )
 
 
@@ -472,24 +472,8 @@ for ax in [ax_pos_first, ax_pos_last, ax_pos_diff, ax_neg_first, ax_neg_last, ax
     )
     ax.set_title("")
 
-plt.tight_layout()
-plt.subplots_adjust(
-    top=0.95,
-    bottom=0.05,
-    left=0.05,
-    right=0.95,
-    hspace=0.35,
-    wspace=0.2,
-)
 
-# Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
-for ax in [ax_pos_first, ax_pos_last, ax_pos_diff]:
-    pos = ax.get_position()
-    ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height])
-
-
-
-cax = fig.add_axes([0.1, 0.02, 0.8, 0.02])  # [left, bottom, width, height]
+cax = fig.add_axes([0.1, 0.01, 0.8, 0.02])  # [left, bottom, width, height]
 
 
 fig.colorbar(
@@ -510,10 +494,27 @@ for i, ax in enumerate(fig.axes[:-1]):
         1.0,
         f"{chr(97 + i)}",
         transform=ax.transAxes,
-        fontsize=14,
+        fontsize=12,
         fontweight="bold",
         va="top",
     )
+
+
+plt.tight_layout()
+plt.subplots_adjust(
+    top=0.95,
+    bottom=0.05,
+    left=0.05,
+    right=0.95,
+    hspace=0.35,
+    wspace=0.2,
+)
+
+# Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
+for ax in [ax_pos_first, ax_pos_last, ax_pos_diff]:
+    pos = ax.get_position()
+    ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height])
+
 
 
 

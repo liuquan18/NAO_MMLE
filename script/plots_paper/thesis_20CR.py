@@ -307,7 +307,7 @@ CR20_composite_ts_first.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
     ax=ax_pos_first,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels =np.arange(-2, 2.1, 0.1),
+    levels =np.arange(-1.5, 1.6, 0.3),
     add_colorbar=False,
 )
 
@@ -315,7 +315,7 @@ CR20_composite_ts_last.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
     ax=ax_pos_last,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels =np.arange(-2, 2.1, 0.1),
+    levels =np.arange(-1.5, 1.6, 0.3),
     extend = 'both',
     add_colorbar=False, 
 )
@@ -323,7 +323,7 @@ CR20_composite_ts_diff.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
     ax=ax_pos_diff,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels =np.arange(-2, 2.1, 0.1),
+    levels =np.arange(-1.5, 1.6, 0.3),
     extend = 'both',
     add_colorbar=False,
 )
@@ -360,7 +360,7 @@ map_temp = CR20_composite_ts_first.ts.sel(extr_type='neg', mode='NAO').plot(
     ax=ax_neg_first,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels=np.arange(-2, 2.1, 0.1),
+    levels=np.arange(-1.5, 1.6, 0.3),
     extend='both',
     add_colorbar=False,
 )
@@ -369,7 +369,7 @@ CR20_composite_ts_last.ts.sel(extr_type='neg', mode='NAO').plot(
     ax=ax_neg_last,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels=np.arange(-2, 2.1, 0.1),
+    levels=np.arange(-1.5, 1.6, 0.3),
     extend='both',
     add_colorbar=False,
 )
@@ -378,7 +378,7 @@ CR20_composite_ts_diff.ts.sel(extr_type='neg', mode='NAO').plot(
     ax=ax_neg_diff,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
-    levels=np.arange(-2, 2.1, 0.1),
+    levels=np.arange(-1.5, 1.6, 0.3),
     extend='both',
     add_colorbar=False,
 )

@@ -426,6 +426,20 @@ for ax in[ax_hist, ax_pos, ax_neg]:
 
 
 #### ax2 ####
+ax_hist.text(
+    0.98,
+    0.98,
+    "({first_std:0.2f} --> {last_std:0.2f})*".format(
+        first_std=1.00, last_std=1.18
+    ),
+    transform=ax_hist.transAxes,
+    fontsize=12,
+    ha="right",
+    va="top",
+)
+
+
+
 # add legend
 ax_hist.axes.set_facecolor("none")
 f_patch_MPI = mpatches.Patch(color="#1f77b4", label="first10")
@@ -434,14 +448,14 @@ l_patch_MPI = mpatches.Patch(color="#ff7f0e", label="last10")
 ax_hist.set_ylabel(
     "probability density",
 )
-ax_hist.set_xlabel("NAO index", fontsize=12)
+ax_hist.set_xlabel("", fontsize=12)
 
 ax_hist.legend(
     handles=[f_patch_MPI, l_patch_MPI],
     loc="lower center",
     frameon=False,
     ncol=2,
-    bbox_to_anchor=(0.5, -0.5),
+    bbox_to_anchor=(0.5, -0.3),
 )
 
 empty_patch = mpatches.Patch(
@@ -457,7 +471,7 @@ ax_pos.legend(
     loc="lower center",
     frameon=False,
     ncol=2,
-    bbox_to_anchor=(1.2, -0.5),
+    bbox_to_anchor=(1.2, -0.3),
 )
 
 
@@ -516,6 +530,9 @@ for ax in [ax_pos_first, ax_pos_last, ax_pos_diff]:
     ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height])
 
 
+for ax in [ax_hist, ax_pos, ax_neg]:
+    pos = ax.get_position()
+    ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height*1.2])
 
 
 # # save the figure

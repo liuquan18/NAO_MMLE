@@ -151,7 +151,7 @@ pc_dfs = pd.concat([pc_first_df[['pc', 'period']], pc_last_df[['pc', 'period']]]
 
 
 #%%
-fig = plt.figure(figsize=(8, 10))
+fig = plt.figure(figsize=(180 / 25.4, 180 / 25.4))
 plt.rcParams.update({
     "font.size": 14,
     "axes.titlesize": 14,
@@ -424,6 +424,45 @@ for ax in[ax_hist, ax_pos, ax_neg]:
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
+
+#### ax2 ####
+# add legend
+ax_hist.axes.set_facecolor("none")
+f_patch_MPI = mpatches.Patch(color="#1f77b4", label="first10")
+l_patch_MPI = mpatches.Patch(color="#ff7f0e", label="last10")
+
+ax_hist.set_ylabel(
+    "probability density",
+)
+ax_hist.set_xlabel("NAO index", fontsize=14)
+
+ax_hist.legend(
+    handles=[f_patch_MPI, l_patch_MPI],
+    loc="lower center",
+    frameon=False,
+    ncol=2,
+    bbox_to_anchor=(0.5, -0.6),
+)
+
+empty_patch = mpatches.Patch(
+    facecolor="none", edgecolor="black", label="20CR", linewidth=1
+)
+
+fill_patch = mpatches.Patch(
+    facecolor="grey", edgecolor="black", label="20CR_ens (80)"
+)
+
+ax_pos.legend(
+    handles=[ empty_patch, fill_patch],
+    loc="lower center",
+    frameon=False,
+    ncol=2,
+    bbox_to_anchor=(1.2, -0.6),
+)
+
+
+
+
 for ax in [ax_pos_first, ax_pos_last, ax_pos_diff, ax_neg_first, ax_neg_last, ax_neg_diff]:
     ax.set_global()
     ax.coastlines(linewidth=0.5)
@@ -439,17 +478,27 @@ plt.subplots_adjust(
     bottom=0.05,
     left=0.05,
     right=0.95,
-    hspace=0.03,
+    hspace=0.35,
     wspace=0.2,
 )
+
+# Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
+for ax in [ax_pos_first, ax_pos_last, ax_pos_diff]:
+    pos = ax.get_position()
+    ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height])
+
+
+
+cax = fig.add_axes([0.1, 0.02, 0.8, 0.02])  # [left, bottom, width, height]
 
 
 fig.colorbar(
     map_temp,
-    ax=[ax_neg_first, ax_neg_last, ax_neg_diff],
+    cax=cax,
     orientation="horizontal",
     aspect=50,
     fraction=0.05,
+    pad=0.1,
     shrink=0.8,
     label="near surface temperature anomaly (K)",
 )
@@ -466,8 +515,10 @@ for i, ax in enumerate(fig.axes[:-1]):
         va="top",
     )
 
-# save the figure
-fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.pdf",
+
+
+# # save the figure
+fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.png",
             bbox_inches="tight",
             dpi=300,
             )

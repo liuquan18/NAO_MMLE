@@ -228,7 +228,7 @@ ax_pos.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=6,  # This adds the hats
+    capsize=4,  # This adds the hats
     zorder=11,
 )
 
@@ -251,7 +251,7 @@ ax_pos.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=6,
+    capsize=4,
     zorder=11,
 )
 
@@ -275,7 +275,7 @@ ax_neg.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=5,  # This adds the hats
+    capsize=4,  # This adds the hats
     zorder=11,
 )
 reananlysis_bar(
@@ -297,7 +297,7 @@ ax_neg.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=5,
+    capsize=4,
     zorder=11,
 )
 

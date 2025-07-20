@@ -333,7 +333,7 @@ CR20_composite_psl_first.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_first,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths =0.5,
+    linewidths =1,
     add_colorbar=False,
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -342,7 +342,7 @@ CR20_composite_psl_last.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_last,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths = 0.5,
+    linewidths =1,
     add_colorbar=False,
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -350,7 +350,7 @@ CR20_composite_psl_diff.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_diff,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths =0.5,
+    linewidths =1,
     add_colorbar=False, 
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -387,7 +387,7 @@ CR20_composite_psl_first.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_first,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths =0.5,
+    linewidths =1,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -396,7 +396,7 @@ CR20_composite_psl_last.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_last,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths =0.5,
+    linewidths =1,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -405,7 +405,7 @@ CR20_composite_psl_diff.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_diff,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidths =0.5,
+    linewidths =1,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -505,7 +505,7 @@ fig.colorbar(
 for i, ax in enumerate(fig.axes[:-1]):
     ax.text(
         -0.1,
-        1.2,
+        1.05,
         f"{chr(97 + i)}",
         transform=ax.transAxes,
         fontsize=12,
@@ -521,7 +521,7 @@ plt.subplots_adjust(
     left=0.05,
     right=0.95,
     hspace=0.35,
-    wspace=0.1,
+    wspace=0.12,
 )
 
 # Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
@@ -535,11 +535,11 @@ for ax in [ax_hist, ax_pos, ax_neg]:
     ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height*1.2])
 
 
-# # # save the figure
-# fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.png",
-#             bbox_inches="tight",
-#             dpi=300,
-#             )
+# # save the figure
+fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.png",
+            bbox_inches="tight",
+            dpi=300,
+            )
 
 #%%
 

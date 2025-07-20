@@ -527,7 +527,7 @@ plt.subplots_adjust(
 # Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
 for ax in [ax_pos_first, ax_pos_last, ax_pos_diff]:
     pos = ax.get_position()
-    ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height])
+    ax.set_position([pos.x0, pos.y0 - 0.08, pos.width, pos.height])
 
 
 for ax in [ax_hist, ax_pos, ax_neg]:

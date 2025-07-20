@@ -151,7 +151,7 @@ pc_dfs = pd.concat([pc_first_df[['pc', 'period']], pc_last_df[['pc', 'period']]]
 
 
 #%%
-fig = plt.figure(figsize=(180 / 25.4, 180 / 25.4))
+fig = plt.figure(figsize=(150 / 25.4, 180 / 25.4))
 plt.rcParams.update({
     "font.size": 12,
     "axes.titlesize": 12,
@@ -275,7 +275,7 @@ ax_neg.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=6,  # This adds the hats
+    capsize=5,  # This adds the hats
     zorder=11,
 )
 reananlysis_bar(
@@ -297,13 +297,13 @@ ax_neg.errorbar(
     fmt='none',
     color='k',
     linewidth=2,
-    capsize=6,
+    capsize=5,
     zorder=11,
 )
 
 # positive
 # ts as color
-CR20_composite_ts_first.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
+CR20_composite_ts_first.ts.sel(extr_type = 'pos', mode = 'NAO').plot.contourf(
     ax=ax_pos_first,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -311,7 +311,7 @@ CR20_composite_ts_first.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
     add_colorbar=False,
 )
 
-CR20_composite_ts_last.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
+CR20_composite_ts_last.ts.sel(extr_type = 'pos', mode = 'NAO').plot.contourf(
     ax=ax_pos_last,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -319,7 +319,7 @@ CR20_composite_ts_last.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
     extend = 'both',
     add_colorbar=False, 
 )
-CR20_composite_ts_diff.ts.sel(extr_type = 'pos', mode = 'NAO').plot(
+CR20_composite_ts_diff.ts.sel(extr_type = 'pos', mode = 'NAO').plot.contourf(
     ax=ax_pos_diff,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -333,7 +333,7 @@ CR20_composite_psl_first.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_first,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths =0.5,
     add_colorbar=False,
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -342,7 +342,7 @@ CR20_composite_psl_last.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_last,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths = 0.5,
     add_colorbar=False,
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -350,13 +350,13 @@ CR20_composite_psl_diff.sel(extr_type = 'pos', mode = 'NAO').plot.contour(
     ax=ax_pos_diff,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths =0.5,
     add_colorbar=False, 
     levels = [l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
 # negative
 
-map_temp = CR20_composite_ts_first.ts.sel(extr_type='neg', mode='NAO').plot(
+map_temp = CR20_composite_ts_first.ts.sel(extr_type='neg', mode='NAO').plot.contourf(
     ax=ax_neg_first,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -365,7 +365,7 @@ map_temp = CR20_composite_ts_first.ts.sel(extr_type='neg', mode='NAO').plot(
     add_colorbar=False,
 )
 
-CR20_composite_ts_last.ts.sel(extr_type='neg', mode='NAO').plot(
+CR20_composite_ts_last.ts.sel(extr_type='neg', mode='NAO').plot.contourf(
     ax=ax_neg_last,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -374,7 +374,7 @@ CR20_composite_ts_last.ts.sel(extr_type='neg', mode='NAO').plot(
     add_colorbar=False,
 )
 
-CR20_composite_ts_diff.ts.sel(extr_type='neg', mode='NAO').plot(
+CR20_composite_ts_diff.ts.sel(extr_type='neg', mode='NAO').plot.contourf(
     ax=ax_neg_diff,
     transform=ccrs.PlateCarree(),
     cmap="RdBu_r",
@@ -387,7 +387,7 @@ CR20_composite_psl_first.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_first,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths =0.5,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -396,7 +396,7 @@ CR20_composite_psl_last.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_last,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths =0.5,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -405,7 +405,7 @@ CR20_composite_psl_diff.sel(extr_type='neg', mode='NAO').plot.contour(
     ax=ax_neg_diff,
     transform=ccrs.PlateCarree(),
     colors="black",
-    linewidth=0.5,
+    linewidths =0.5,
     add_colorbar=False,
     levels=[l for l in np.arange(-5, 5.1, 1) if l != 0],
 )
@@ -505,7 +505,7 @@ fig.colorbar(
 for i, ax in enumerate(fig.axes[:-1]):
     ax.text(
         -0.1,
-        1.0,
+        1.2,
         f"{chr(97 + i)}",
         transform=ax.transAxes,
         fontsize=12,
@@ -521,7 +521,7 @@ plt.subplots_adjust(
     left=0.05,
     right=0.95,
     hspace=0.35,
-    wspace=0.2,
+    wspace=0.1,
 )
 
 # Move the second row (ax_pos_first, ax_pos_last, ax_pos_diff) a bit lower
@@ -535,11 +535,11 @@ for ax in [ax_hist, ax_pos, ax_neg]:
     ax.set_position([pos.x0, pos.y0 - 0.06, pos.width, pos.height*1.2])
 
 
-# # save the figure
-fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.png",
-            bbox_inches="tight",
-            dpi=300,
-            )
+# # # save the figure
+# fig.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/thesis/20CR_allens_nao_extreme.png",
+#             bbox_inches="tight",
+#             dpi=300,
+#             )
 
 #%%
 

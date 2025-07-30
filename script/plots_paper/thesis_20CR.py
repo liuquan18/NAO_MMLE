@@ -442,8 +442,8 @@ ax_hist.text(
 
 # add legend
 ax_hist.axes.set_facecolor("none")
-f_patch_MPI = mpatches.Patch(color="#1f77b4", label="first10")
-l_patch_MPI = mpatches.Patch(color="#ff7f0e", label="last10")
+f_patch_MPI = mpatches.Patch(color="#1f77b4", label="first40")
+l_patch_MPI = mpatches.Patch(color="#ff7f0e", label="last40")
 
 ax_hist.set_ylabel(
     "probability density",

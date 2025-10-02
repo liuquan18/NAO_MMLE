@@ -297,3 +297,54 @@ axes[5, 2].text(0.1, 1, "r", transform=axes[5, 2].transAxes, fontsize=12, fontwe
 
 plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/paper_main/ts_composite_neg_rc.pdf", dpi=300, bbox_inches="tight")
 # %%
+fig, axes = plt.subplots(
+    1, 2, figsize = (7, 4),
+    subplot_kw={"projection": ccrs.Orthographic(0, 70)},)
+
+
+map = erase_white_line(COMPOSITEs_ts['MPI_GE'].sel(mode = 'NAO', extr_type = 'pos', period = 'last')).plot.contourf(
+    ax=axes[0],
+    x="lon",
+    y="lat",
+    levels=np.arange(-1.5, 1.6, 0.1),
+    extend="both",
+    transform=ccrs.PlateCarree(),
+    cmap=temp_cmap_div,
+    add_colorbar=False,
+)
+
+# negative
+erase_white_line(COMPOSITEs_ts['MPI_GE'].sel(mode = 'NAO', extr_type = 'neg', period = 'last')).plot.contourf(
+    ax=axes[1],
+    x="lon",
+    y="lat",
+    levels=np.arange(-1.2, 1.3, 0.1),
+    extend="both",
+    transform=ccrs.PlateCarree(),
+    cmap=temp_cmap_div,
+    add_colorbar=False,
+)
+
+
+
+# add coastlines
+axes[0].coastlines(color='black', linewidth=0.5)
+axes[1].coastlines(color='black', linewidth=0.5)
+
+# add gridlines
+axes[0].gridlines(draw_labels=False, color='gray', linestyle='--', linewidth=0.5)
+axes[1].gridlines(draw_labels=False, color='gray', linestyle='--', linewidth=0.5)
+
+# add colorbar vertical at the right side of the second plot
+cax = fig.add_axes([0.99, 0.15, 0.02, 0.7])  # [left, bottom, width, height]
+cbar = fig.colorbar(map, cax=cax, orientation='vertical')
+cbar.set_label('Difference from average temperature [K]', fontsize=11)
+
+axes[0].set_title('positive NAO extreme', fontsize=12)
+axes[1].set_title('negative NAO extreme', fontsize=12)
+
+plt.tight_layout()
+
+plt.savefig("/work/mh0033/m300883/Tel_MMLE/docs/source/plots/workshop/ts_composite_pos_neg_mpi_ge.png", dpi=300, bbox_inches="tight")
+
+# %%
